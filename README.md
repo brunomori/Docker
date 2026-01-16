@@ -3,7 +3,7 @@
 
 ---
 
-## 🐳 Conteúdo 1 — Docker Básico (Sobrevivência)
+## 🐳 Conteúdo 1 — Docker Básico
 
 ### 📌 O que é Docker
 
