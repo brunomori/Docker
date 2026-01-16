@@ -247,6 +247,7 @@ CMD ["node", "src/index.js"]
 docker build -t nome-da-imagem .
 docker build -t app:v1.0 . (📌 Criar build com TAG. O ponto final (.) significa: “use o diretório atual como contexto de build”)
 docker image remove app:v1.0 (Remove image atraves da TAG)
+docker image tag app:latest app:v1.0.0 (altera a TAG de latest para v1.0.0 da aplicação "app")
 
 
 ```
