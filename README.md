@@ -258,6 +258,8 @@ docker build -t nome-da-imagem .
 
 ```bash
 docker run nome-da-imagem
+docker run -dp 3000:3000 app (Cria e executa um container da imagem app, em background, expondo a aplicação na porta 3000 do host.)
+
 ```
 
 Rodar em background:
@@ -277,6 +279,8 @@ Modo interativo (acesso ao shell do container):
 ```bash
 docker run -it nome-da-imagem sh
 ```
+
+
 
 Explicação:
 
