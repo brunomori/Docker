@@ -239,4 +239,63 @@ docker system prune
 
 ---
 
+## 🧪 Exemplo Prático — Do Dockerfile ao Container Rodando
+
+### Cenário
+
+Subir uma aplicação simples em Node.js usando Docker e acessar pelo navegador.
+
+### Estrutura do projeto
+
+```
+app/
+ ├─ app.js
+ └─ Dockerfile
+```
+
+### app.js
+
+```js
+const http = require('http');
+
+http.createServer((req, res) => {
+  res.end('Docker funcionando!');
+}).listen(3000);
+```
+
+### Dockerfile
+
+```Dockerfile
+FROM node:alpine
+WORKDIR /app
+COPY . .
+CMD ["node", "app.js"]
+```
+
+### Build da imagem
+
+```bash
+docker build -t app-node .
+```
+
+### Executar o container
+
+```bash
+docker run -p 3000:3000 app-node
+```
+
+Acesse no navegador:
+
+```
+http://localhost:3000
+```
+
+Resultado esperado:
+
+```
+Docker funcionando!
+```
+
+---
+
 🧠 Objetivo: servir como **cola rápida** e base sólida para SRE Jr / DevOps.
