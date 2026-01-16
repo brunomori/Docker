@@ -245,6 +245,8 @@ CMD ["node", "src/index.js"]
 
 ```bash
 docker build -t nome-da-imagem .
+docker build -t app:v1.0 . (📌 Criar build com TAG. O ponto final (.) significa: “use o diretório atual como contexto de build”)
+
 ```
 
 * `-t` → define a tag/nome da imagem
