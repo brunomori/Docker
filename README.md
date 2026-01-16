@@ -132,6 +132,117 @@ Use `ADD` quando:
 
 ## 🛠️ Build da imagem
 
+### Build básico da imagem
+
+```bash
+docker build -t app .
+```
+
+* `-t app` → nome/tag da imagem
+* `.` → diretório atual (onde está o Dockerfile)
+
+---
+
+### Executar container em modo interativo (debug)
+
+```bash
+docker run -it app sh
+```
+
+Usado para:
+
+* depurar erros
+* inspecionar arquivos
+* testar comandos dentro do container
+
+---
+
+## 🧱 Dockerfile — Exemplos Organizados por Nível
+
+### 🔹 Exemplo 1 — Dockerfile simples (base)
+
+```Dockerfile
+FROM node:12-alpine
+WORKDIR /app
+COPY . .
+RUN apk add --no-cache python2 g++ make
+```
+
+Usado quando:
+
+* projeto simples
+* sem preocupação inicial com usuário ou otimização
+
+---
+
+### 🔹 Exemplo 2 — Dockerfile com variável de ambiente
+
+```Dockerfile
+FROM node:12-alpine
+WORKDIR /app
+COPY . .
+RUN apk add --no-cache python2 g++ make
+
+ENV API_URL=https://api.bruno.com/
+```
+
+Usado quando:
+
+* aplicação depende de configurações externas
+* ambientes diferentes (dev, stage, prod)
+
+---
+
+### 🔹 Exemplo 3 — Dockerfile mais próximo de produção (boas práticas)
+
+```Dockerfile
+FROM node:12-alpine
+WORKDIR /app
+
+RUN addgroup bruno && adduser -S -G bruno dev
+USER dev
+
+COPY . .
+RUN apk add --no-cache python2 g++ make
+RUN yarn install --production
+
+EXPOSE 3000
+CMD ["node", "src/index.js"]
+```
+
+### 📖 Explicação linha por linha
+
+* `FROM node:12-alpine`
+  → Define a imagem base. Usa Node.js versão 12 sobre Alpine Linux, que é uma distribuição leve e comum em containers.
+
+* `WORKDIR /app`
+  → Define `/app` como diretório de trabalho dentro do container. Todos os comandos seguintes usam esse diretório como base.
+
+* `RUN addgroup bruno && adduser -S -G bruno dev`
+  → Cria um grupo chamado `bruno` e um usuário `dev` pertencente a esse grupo. Isso evita rodar a aplicação como root.
+
+* `USER dev`
+  → Define que, a partir daqui, os comandos e a aplicação rodarão como o usuário `dev`.
+
+* `COPY . .`
+  → Copia todos os arquivos do diretório atual do host para o diretório `/app` dentro do container.
+
+* `RUN apk add --no-cache python2 g++ make`
+  → Instala dependências necessárias para compilar módulos nativos. O `--no-cache` evita deixar arquivos temporários na imagem.
+
+* `RUN yarn install --production`
+  → Instala apenas dependências de produção, ignorando dependências de desenvolvimento.
+
+* `EXPOSE 3000`
+  → Documenta que a aplicação escuta na porta 3000. Não abre a porta, apenas informa.
+
+* `CMD ["node", "src/index.js"]`
+  → Define o comando principal que será executado quando o container iniciar.
+
+---
+
+## 🛠️ Build da imagem
+
 ```bash
 docker build -t nome-da-imagem .
 ```
