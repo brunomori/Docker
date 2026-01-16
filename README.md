@@ -3,14 +3,33 @@
 
 ---
 
-## 🐳 Conteúdo 1 — Docker Básico 
+## 🐳 Conteúdo 1 — Docker Básico (Sobrevivência)
 
 ### 📌 O que é Docker
 
 Docker é uma plataforma que permite empacotar aplicações e suas dependências em **containers**, garantindo que rodem da mesma forma em qualquer ambiente.
 
-* **Imagem** → molde da aplicação
-* **Container** → imagem em execução
+---
+
+### 🧠 Diferença entre Imagem e Container
+
+* **Imagem Docker** → é o *modelo* (template) da aplicação. Ela é **imutável** e contém tudo que a aplicação precisa para rodar (código, dependências, configurações).
+* **Container Docker** → é a **imagem em execução**. Ele é criado a partir de uma imagem e representa a aplicação rodando de fato.
+
+Exemplo prático:
+
+* Imagem = classe
+* Container = objeto da classe
+
+Ou ainda:
+
+* Imagem = receita
+* Container = prato pronto
+
+Resumo rápido:
+
+* Uma imagem pode gerar **vários containers**
+* Se o container for apagado, a imagem continua existindo
 
 ---
 
@@ -90,6 +109,18 @@ Mapear portas:
 ```bash
 docker run -p 3000:3000 nome-da-imagem
 ```
+
+Modo interativo (acesso ao shell do container):
+
+```bash
+docker run -it nome-da-imagem sh
+```
+
+Explicação:
+
+* `-i` → mantém a entrada padrão aberta (interativo)
+* `-t` → cria um terminal (TTY)
+* `sh` → shell dentro do container (em imagens alpine)
 
 ---
 
