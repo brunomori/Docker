@@ -3,7 +3,7 @@
 
 ---
 
-## 🐳 Conteúdo 1 — Docker Básico
+## 🐳 Conteúdo 1 — Docker Básico (Sobrevivência)
 
 ### 📌 O que é Docker
 
@@ -81,7 +81,56 @@ CMD` → comando executado ao iniciar o container
 
 ---
 
-### 🛠️ Build da imagem
+### ➕ COPY vs ADD (Quando e por que usar)
+
+### COPY (recomendado na maioria dos casos)
+
+Usado para copiar arquivos e diretórios do **host** para o **container** de forma simples e previsível.
+
+```Dockerfile
+COPY . .
+```
+
+Use quando:
+
+* estiver copiando arquivos locais
+* quiser comportamento simples e controlado
+* seguir boas práticas
+
+---
+
+### ADD (uso específico)
+
+O `ADD` faz tudo que o `COPY` faz **e mais**, porém com comportamentos extras.
+
+Exemplo:
+
+```Dockerfile
+ADD app.tar.gz /app
+```
+
+O que o `ADD` faz de diferente:
+
+* descompacta automaticamente arquivos `.tar`
+* permite copiar arquivos a partir de uma URL
+
+Use `ADD` quando:
+
+* precisar descompactar arquivos automaticamente
+* precisar baixar um arquivo remoto (caso muito específico)
+
+⚠️ Atenção:
+
+* Evite `ADD` quando `COPY` resolver
+* `ADD` pode gerar comportamentos inesperados
+
+📌 Boa prática SRE:
+
+> Use **COPY por padrão**. Use **ADD somente quando precisar das funcionalidades extras**.
+
+---
+
+## 🛠️ Build da imagem
 
 ```bash
 docker build -t nome-da-imagem .
