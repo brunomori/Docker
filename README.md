@@ -196,14 +196,14 @@ Usado quando:
 ### 🔹 Exemplo 3 — Dockerfile mais próximo de produção (boas práticas)
 
 ```Dockerfile
-FROM node:12-alpine
+FROM node:18-alpine
 WORKDIR /app
 
 RUN addgroup bruno && adduser -S -G bruno dev
 USER dev
 
 COPY . .
-RUN apk add --no-cache python2 g++ make
+RUN apk add --no-cache python3 g++ make
 RUN yarn install --production
 
 EXPOSE 3000
