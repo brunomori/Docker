@@ -64,18 +64,20 @@ sudo usermod -aG docker $USER
 ### 📄 Dockerfile (criador de imagem)
 
 ```Dockerfile
-FROM node:alpine
-COPY . /app
+FROM node:12-alpine
 WORKDIR /app
+COPY . .
 CMD ["node", "app.js"]
 ```
 
 Explicação:
 
-* `FROM` → imagem base
-* `COPY` → copia arquivos
-* `WORKDIR` → diretório de trabalho
+* `FROM` → define a imagem base
+* `WORKDIR` → define o diretório de trabalho dentro do container
+* `COPY . .` → copia **todos os arquivos do diretório atual (host)** para o **diretório atual do container** (definido pelo WORKDIR)
 * `CMD` → comando executado ao iniciar o container
+
+CMD` → comando executado ao iniciar o container
 
 ---
 
