@@ -196,14 +196,14 @@ Usado quando:
 ### 🔹 Exemplo 3 — Dockerfile mais próximo de produção (boas práticas)
 
 ```Dockerfile
-FROM node:18-alpine
+FROM node:12-alpine
 WORKDIR /app
 
 RUN addgroup bruno && adduser -S -G bruno dev
 USER dev
 
 COPY . .
-RUN apk add --no-cache python3 g++ make
+RUN apk add --no-cache python2 g++ make
 RUN yarn install --production
 
 EXPOSE 3000
@@ -245,11 +245,6 @@ CMD ["node", "src/index.js"]
 
 ```bash
 docker build -t nome-da-imagem .
-docker build -t app:v1.0 . (📌 Criar build com TAG. O ponto final (.) significa: “use o diretório atual como contexto de build”)
-docker image remove app:v1.0 (Remove image atraves da TAG)
-docker image tag app:latest app:v1.0.0 (altera a TAG de latest para v1.0.0 da aplicação "app")
-
-
 ```
 
 * `-t` → define a tag/nome da imagem
@@ -263,8 +258,6 @@ docker image tag app:latest app:v1.0.0 (altera a TAG de latest para v1.0.0 da ap
 
 ```bash
 docker run nome-da-imagem
-docker run -dp 3000:3000 app (Cria e executa um container da imagem app, em background, expondo a aplicação na porta 3000 do host.)
-
 ```
 
 Rodar em background:
@@ -284,8 +277,6 @@ Modo interativo (acesso ao shell do container):
 ```bash
 docker run -it nome-da-imagem sh
 ```
-
-
 
 Explicação:
 
@@ -398,6 +389,71 @@ docker system prune
 ```
 
 ⚠️ Atenção: remove recursos não utilizados.
+
+---
+
+## 🌍 Conteúdo 8 — Docker Hub (Subir e Baixar Imagens)
+
+### 📌 O que é Docker Hub
+
+Docker Hub é um **repositório de imagens Docker**, parecido com o GitHub, usado para armazenar e compartilhar imagens.
+
+---
+
+### 🔐 Login no Docker Hub
+
+```bash
+docker login
+```
+
+* Use seu usuário e senha do Docker Hub
+
+---
+
+### 🏷️ Taguear imagem para o Docker Hub
+
+Formato obrigatório:
+
+```
+usuario/nome-da-imagem:versao
+```
+
+Exemplo:
+
+```bash
+docker tag app:v1.0 brunomori/app:v1.0
+```
+
+---
+
+### ⬆️ Enviar imagem para o Docker Hub (push)
+
+```bash
+docker push brunomori/app:v1.0
+```
+
+Após o push, a imagem ficará disponível no Docker Hub.
+
+---
+
+### ⬇️ Baixar imagem do Docker Hub (pull)
+
+```bash
+docker pull brunomori/app:v1.0
+```
+
+---
+
+### ▶️ Rodar imagem baixada
+
+```bash
+docker run -dp 3000:3000 brunomori/app:v1.0
+```
+
+Resumo rápido:
+
+* `docker push` → envia imagem para o repositório
+* `docker pull` → baixa imagem para o ambiente local
 
 ---
 
