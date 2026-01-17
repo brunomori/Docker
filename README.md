@@ -555,7 +555,9 @@ Docker funcionando!
 | Atualizar imagens             | `docker-compose pull`                                |
 | Construir imagens             | `docker-compose build`                               |
 
-```bash
+# Explicação do docker-compose.yml
+
+```yaml
 version: '3'
 services:
   web:
@@ -571,7 +573,6 @@ services:
 
 volumes:
   db_data:
-```
 
 
 🧠 Objetivo: servir como **cola rápida** e base sólida para SRE Jr / DevOps.
