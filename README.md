@@ -573,6 +573,22 @@ services:
 
 volumes:
   db_data:
+  ```
+
+  Explicação:
+
+* `version: '3'` → define a versão da sintaxe do Docker Compose.  
+* `services:` → lista os serviços (containers) que serão criados.  
+* `web:` → serviço que usa a imagem oficial do Nginx.  
+* `image: nginx` → especifica a imagem usada.  
+* `ports: "8080:80"` → mapeia a porta 80 do container para a porta 8080 do host.  
+* `db:` → serviço que usa a imagem oficial do MySQL.  
+* `image: mysql` → especifica a imagem usada.  
+* `environment:` → define variáveis de ambiente.  
+* `MYSQL_ROOT_PASSWORD: exemplo123` → senha do usuário root do banco.  
+* `volumes: db_data:/var/lib/mysql` → cria persistência de dados, mapeando o volume `db_data` para o diretório interno do MySQL.  
+* `volumes:` → declara volumes persistentes.  
+* `db_data:` → volume nomeado usado pelo serviço `db` para manter os dados mesmo após reiniciar ou remover o container.  
 
 
 🧠 Objetivo: servir como **cola rápida** e base sólida para SRE Jr / DevOps.
