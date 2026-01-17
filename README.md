@@ -540,4 +540,38 @@ Docker funcionando!
 
 ---
 
+# Docker Compose – Comandos Essenciais
+
+| Ação                          | Comando Exemplo                                      |
+|-------------------------------|------------------------------------------------------|
+| Criar arquivo Compose         | `docker-compose.yml` (definir serviços, volumes, redes) |
+| Subir serviços                | `docker-compose up -d`                               |
+| Derrubar serviços             | `docker-compose down`                                |
+| Ver logs                      | `docker-compose logs`                                |
+| Escalar serviços              | `docker-compose up -d --scale web=3`                 |
+| Listar serviços ativos        | `docker-compose ps`                                  |
+| Executar comando em serviço   | `docker-compose exec web bash`                       |
+| Recriar containers            | `docker-compose up -d --force-recreate`              |
+| Atualizar imagens             | `docker-compose pull`                                |
+| Construir imagens             | `docker-compose build`                               |
+
+```bash
+version: '3'
+services:
+  web:
+    image: nginx
+    ports:
+      - "8080:80"
+  db:
+    image: mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: exemplo123
+    volumes:
+      - db_data:/var/lib/mysql
+
+volumes:
+  db_data:
+```
+
+
 🧠 Objetivo: servir como **cola rápida** e base sólida para SRE Jr / DevOps.
