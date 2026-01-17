@@ -507,22 +507,6 @@ docker build -t app-node .
 
 ### Executar o container
 
-# Containers – Comandos Essenciais
-
-| Ação                          | Comando Exemplo                                      |
-|-------------------------------|------------------------------------------------------|
-| Criar container               | `docker run ubuntu`                                  |
-| Nomear container              | `docker run --name meu_container ubuntu`             |
-| Ver logs                      | `docker logs meu_container`                          |
-| Publicar portas               | `docker run -p 8080:80 nginx`                        |
-| Executar interativo           | `docker run -it ubuntu bash`                         |
-| Iniciar container             | `docker start meu_container`                         |
-| Parar container               | `docker stop meu_container`                          |
-| Remover container             | `docker rm meu_container`                            |
-| Usar volume persistente       | `docker run -v /meu_dir:/dados ubuntu`               |
-| Copiar arquivo host → container| `docker cp arquivo.txt meu_container:/home`         |
-
-
 ```bash
 docker run -p 3000:3000 app-node
 ```
@@ -538,6 +522,21 @@ Resultado esperado:
 ```
 Docker funcionando!
 ```
+
+# Containers – Comandos Essenciais
+
+| Ação                          | Comando Exemplo                                      |
+|-------------------------------|------------------------------------------------------|
+| Criar container               | `docker run ubuntu`                                  |
+| Nomear container              | `docker run --name meu_container ubuntu`             |
+| Ver logs                      | `docker logs meu_container`                          |
+| Publicar portas               | `docker run -p 8080:80 nginx`                        |
+| Executar interativo           | `docker run -it ubuntu bash`                         |
+| Iniciar container             | `docker start meu_container`                         |
+| Parar container               | `docker stop meu_container`                          |
+| Remover container             | `docker rm meu_container`                            |
+| Usar volume persistente       | `docker run -v /meu_dir:/dados ubuntu`               |
+| Copiar arquivo host → container| `docker cp arquivo.txt meu_container:/home`         |
 
 ---
 
