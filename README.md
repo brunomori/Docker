@@ -331,6 +331,24 @@ docker logs --tail 50 <container>
 docker ps -a
 docker logs <container>
 ```
+## 🧠 Docker — docker exec (comando direto)
+
+```bash
+# Executa um comando DENTRO de um container em execução
+
+# Formato correto
+docker exec <container> <comando>
+
+# Exemplo
+docker exec app ls
+
+# app → NOME ou ID do CONTAINER (não é imagem)
+# ls  → comando executado dentro do container
+
+# Observação
+# O container precisa estar RODANDO
+```
+
 ## 🧠 Docker — Conceito de Portas
 
 ```bash
