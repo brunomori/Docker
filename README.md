@@ -324,7 +324,7 @@ docker stop ID_CONTAINER
 Remover container:
 
 ```bash
-docker rm ID_CONTAINER
+docker rm ID_CONTAINER ( usar stop e depois rm , caso queira matar direto usar: "docker rm -f container_name")
 ```
 ## 🐳 Logs Containers
 
