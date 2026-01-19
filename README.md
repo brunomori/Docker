@@ -288,7 +288,11 @@ Explicação:
 
 ### 📋 Gerenciamento de containers
 
-Listar containers rodando:
+Listar Iniciar, listar containers rodando:
+
+```bash
+docker run -d --name mycontainer brunomanzini/app:v1 (inciado no modo interativo onde fica ativo mesmo depois de sair Ctr+C dando um name)
+```
 
 ```bash
 docker ps
