@@ -336,6 +336,8 @@ docker logs <container>
 ```bash
 # Executa um comando DENTRO de um container em execução
 
+docker exec -it name_container sh  (libera linha de comando, como se tivesse na aplicação)
+
 # Formato correto
 docker exec <container> <comando>
 
