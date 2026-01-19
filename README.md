@@ -315,7 +315,24 @@ Remover container:
 ```bash
 docker rm ID_CONTAINER
 ```
+## 🐳 Logs Containers
 
+```bash
+# Ver logs
+docker logs <container>
+
+# Ver logs em tempo real
+docker logs -f <container>
+
+# Ver últimas linhas
+docker logs --tail 50 <container>
+
+# Container morreu?
+docker ps -a
+docker logs <container>
+
+
+---
 ---
 
 ## 🖼️ Conteúdo 4 — Gerenciamento de Imagens
@@ -333,6 +350,10 @@ docker rmi nome-da-imagem
 ```
 
 ---
+
+
+
+
 
 ## 📂 Conteúdo 5 — Volumes (Persistência)
 
