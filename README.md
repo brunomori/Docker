@@ -352,8 +352,7 @@ http://localhost:80
 
 # Fluxo
 # navegador → localhost:80 → docker → container:3000
-
-
+```
 
 ## 🖼️ Conteúdo 4 — Gerenciamento de Imagens
 
