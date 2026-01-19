@@ -330,10 +330,30 @@ docker logs --tail 50 <container>
 # Container morreu?
 docker ps -a
 docker logs <container>
+```
+## 🧠 Docker — Conceito de Portas
+
+```bash
+# Formato
+-p HOST:CONTAINER
+
+# Exemplo real
+# Aplicação roda na porta 3000 dentro do container
+docker run -d -p 80:3000 app:v1
+
+# CONTAINER (3000)
+# → onde a aplicação escuta
+
+# HOST (80)
+# → onde você acessa
+
+# Acesso no navegador
+http://localhost:80
+
+# Fluxo
+# navegador → localhost:80 → docker → container:3000
 
 
----
----
 
 ## 🖼️ Conteúdo 4 — Gerenciamento de Imagens
 
@@ -350,10 +370,6 @@ docker rmi nome-da-imagem
 ```
 
 ---
-
-
-
-
 
 ## 📂 Conteúdo 5 — Volumes (Persistência)
 
