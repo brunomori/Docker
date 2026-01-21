@@ -418,6 +418,23 @@ docker run -v meu-volume:/dados nome-da-imagem
 
 ---
 
+📂 Copiando Arquivos do Host para o Container
+```bash
+Usando Dockerfile (build):
+
+COPY arquivo.txt /app/arquivo.txt
+
+
+Usando volume (bind mount):
+
+docker run -v $(pwd)/arquivos:/app nginx
+
+
+Copiar com container rodando:
+
+docker cp arquivo.txt meu-container:/tmp/arquivo.txt
+```
+
 ## 🌐 Conteúdo 6 — Docker Network (Básico)
 
 Listar redes:
