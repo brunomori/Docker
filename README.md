@@ -414,6 +414,17 @@ docker volume create meu-volume
 docker volume inspect meu-volume
 ```
 
+```bash
+docker volume ls
+Para listar os volumes disponíveis no Docker
+```
+
+```bash
+docker volume rm app
+Para remover volume disponíveil no Docker
+```
+
+
 Usar volume:
 
 ```bash
