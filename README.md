@@ -326,6 +326,24 @@ Remover container:
 ```bash
 docker rm ID_CONTAINER ( usar stop e depois rm , caso queira matar direto usar: "docker rm -f container_name")
 ```
+
+## 📂 Copiando Arquivos (Host ↔ Container)
+```bash
+Host → Container
+
+Copiar um arquivo do host para o container:
+
+docker cp arquivo.txt meu-container:/caminho/arquivo.txt
+```
+
+```bash
+Container → Host
+
+Copiar um arquivo do container para o host:
+
+docker cp meu-container:/caminho/arquivo.txt ./arquivo.txt
+```
+
 ## 🐳 Logs Containers
 
 ```bash
