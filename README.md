@@ -434,7 +434,7 @@ docker run → cria e executa um container
 
 -it → modo interativo (terminal)
 
--v meu-volume:/dados → monta o volume no caminho /dados
+-v meu-volume:/dados → monta o volume no caminho /dados (estilo pendrive o volume continuara existir mesmo se o contaner for deletado)
 
 brunomanzini/app:v1 → imagem usada
 
