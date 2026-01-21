@@ -410,10 +410,25 @@ Criar volume:
 docker volume create meu-volume
 ```
 
+```bash
+docker volume inspect meu-volume
+```
+
 Usar volume:
 
 ```bash
-docker run -v meu-volume:/dados nome-da-imagem
+docker run -it -v meu-volume:/dados brunomanzini/app:v1 sh
+
+docker run → cria e executa um container
+
+-it → modo interativo (terminal)
+
+-v meu-volume:/dados → monta o volume no caminho /dados
+
+brunomanzini/app:v1 → imagem usada
+
+sh → abre um shell dentro do container
+
 ```
 
 ---
