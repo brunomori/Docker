@@ -327,6 +327,20 @@ Remover container:
 docker rm ID_CONTAINER ( usar stop e depois rm , caso queira matar direto usar: "docker rm -f container_name")
 ```
 
+🔥 Remover TODOS os containers (rodando e parados)
+
+```bash
+docker rm -f $(docker ps -aq) 
+```
+🧹 Alternativa mais “safe” (só parados)
+
+```bash
+docker container prune
+```
+
+
+
+
 ## 📂 Copiando Arquivos (Host ↔ Container)
 ```bash
 Host → Container
