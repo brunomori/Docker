@@ -692,7 +692,7 @@ Docker funcionando!
 | Ação                          | Comando Exemplo                                      |
 |-------------------------------|------------------------------------------------------|
 | Criar arquivo Compose         | `docker-compose.yml` (definir serviços, volumes, redes) |
-| Subir serviços                | `docker-compose up -d`                               |
+| Subir serviços                | `docker-compose up -d` (precisa estar na pasta do docker-compose.yml)                              |
 | Derrubar serviços             | `docker-compose down`                                |
 | Ver logs                      | `docker-compose logs`                                |
 | Escalar serviços              | `docker-compose up -d --scale web=3`                 |
