@@ -694,7 +694,7 @@ Docker funcionando!
 | Criar arquivo Compose         | `docker-compose.yml` (definir serviços, volumes, redes) |
 | Subir serviços                | `docker-compose up -d` (precisa estar na pasta do docker-compose.yml)                              |
 | Derrubar serviços             | `docker-compose down`                                |
-| Ver logs                      | `docker-compose logs`                                |
+| Ver logs                      | `docker-compose logs` (é possivel filtrar adicionado no final o nome do servico `docker-compose logs db`)                               |
 | Escalar serviços              | `docker-compose up -d --scale web=3`                 |
 | Listar serviços ativos        | `docker-compose ps`                                  |
 | Executar comando em serviço   | `docker-compose exec web bash`                       |
