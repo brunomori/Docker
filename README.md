@@ -687,20 +687,25 @@ Docker funcionando!
 
 ---
 
+
 # Docker Compose – Comandos Essenciais
 
-| Ação                          | Comando Exemplo                                      |
-|-------------------------------|------------------------------------------------------|
-| Criar arquivo Compose         | `docker-compose.yml` (definir serviços, volumes, redes) |
-| Subir serviços                | `docker-compose up -d` (precisa estar na pasta do docker-compose.yml)                              |
-| Derrubar serviços             | `docker-compose down`                                |
-| Ver logs                      | `docker-compose logs` (é possivel filtrar adicionado no final o nome do servico `docker-compose logs db`)                               |
-| Escalar serviços              | `docker-compose up -d --scale web=3`                 |
-| Listar serviços ativos        | `docker-compose ps`                                  |
-| Executar comando em serviço   | `docker-compose exec web bash`                       |
-| Recriar containers            | `docker-compose up -d --force-recreate`              |
-| Atualizar imagens             | `docker-compose pull`                                |
-| Construir imagens             | `docker-compose build`                               |
+| Ação                          | Comando Exemplo                                                                 |
+|-------------------------------|----------------------------------------------------------------------------------|
+| Criar arquivo Compose         | `docker-compose.yml` (definir serviços, volumes, redes)                          |
+| Subir serviços                | `docker-compose up -d` (precisa estar na pasta do docker-compose.yml)            |
+| Derrubar serviços             | `docker-compose down`                                                           |
+| Ver logs                      | `docker-compose logs` (é possivel filtrar adicionando no final o nome do serviço `docker-compose logs db`) |
+| Ver últimas linhas de logs    | `docker-compose logs --tail 50`                                                  |
+| Logs em tempo real (follow)   | `docker-compose logs -f`                                                         |
+| Tail + tempo real             | `docker-compose logs --tail 20 -f web`                                           |
+| Escalar serviços              | `docker-compose up -d --scale web=3`                                             |
+| Listar serviços ativos        | `docker-compose ps`                                                             |
+| Executar comando em serviço   | `docker-compose exec web bash`                                                   |
+| Recriar containers            | `docker-compose up -d --force-recreate`                                         |
+| Atualizar imagens             | `docker-compose pull`                                                           |
+| Construir imagens             | `docker-compose build`                                                          |
+
 
 # Explicação do docker-compose.yml
 
